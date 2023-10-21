@@ -11,5 +11,7 @@ public class NumeroPari {
         } while (numero % 2 != 0);
 
         System.out.println("Hai inserito un numero pari: " + numero);
+
+        scanner.close();
     }
 }

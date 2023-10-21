@@ -18,8 +18,7 @@ public class CorniceTrinagoloRettangoloAngoloSx {
             }
             System.out.print("*");
             System.out.println("");
-
-
         }
+        input.close();
     }
 }

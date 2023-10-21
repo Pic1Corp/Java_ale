@@ -15,5 +15,6 @@ public class CorniceTriangoloRettangoloAngoloDx {
             }
             System.out.println("*");
         }
+        input.close();
     }
 }

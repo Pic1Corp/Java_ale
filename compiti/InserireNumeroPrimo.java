@@ -23,5 +23,7 @@ public class InserireNumeroPrimo {
         }while(isPrimo == false);
 
         System.out.println(numero + " è un numero primo.");
+
+        input.close();
     }
 }

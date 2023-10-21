@@ -14,5 +14,6 @@ public class StampareFattori {
                 System.out.println(i);
             }
         }
+        input.close();
     }
 }

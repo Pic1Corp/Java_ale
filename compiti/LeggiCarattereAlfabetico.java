@@ -12,5 +12,7 @@ public class LeggiCarattereAlfabetico {
 
         System.out.println("Hai inserito il carattere alfabetico: " + carattere);
 
+        scanner.close();
+
     }
 }

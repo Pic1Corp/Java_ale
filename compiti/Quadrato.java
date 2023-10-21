@@ -12,5 +12,6 @@ public class Quadrato {
             }
             System.out.println();
         }
+        input.close();
     }
 }

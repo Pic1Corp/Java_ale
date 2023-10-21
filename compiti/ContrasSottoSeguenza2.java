@@ -33,5 +33,7 @@ public class ContrasSottoSeguenza2 {
             car = input.nextLine().charAt(0);
         }
         System.out.println("La lunghezza della più lunga sequenza di "+ carLenMax + " di fila è: " + lenMax);
+
+        input.close();
     }
 }
