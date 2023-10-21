@@ -15,5 +15,6 @@ public class TriangoloIsoscele {
             }
             System.out.println();
         }
+        input.close();
     }
 }

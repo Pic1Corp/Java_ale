@@ -24,5 +24,7 @@ public class ContaSottoSequenza {
         }
 
         System.out.println("La lunghezza della più lunga sotto-sequenza di '*' di fila è: " + conteggioMassimo);
+
+        input.close();
     }
 }

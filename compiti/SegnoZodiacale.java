@@ -15,5 +15,6 @@ public class SegnoZodiacale {
         } else {
             System.out.println("La persona non è del segno dei Pesci.");
         }
+        input.close();
     }
 }

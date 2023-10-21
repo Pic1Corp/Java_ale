@@ -16,5 +16,6 @@ public class CorniceQuadrato {
             }
             System.out.println();
         }
+        input.close();
     }
 }

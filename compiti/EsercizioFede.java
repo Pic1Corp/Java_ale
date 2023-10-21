@@ -16,5 +16,7 @@ public class EsercizioFede{
         }
 
         System.out.println("il risultato è: " + risultato);
+
+        input.close();
     }
 }
