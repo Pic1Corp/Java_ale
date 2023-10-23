@@ -3,32 +3,32 @@ import java.util.Scanner;
 
 public class GiocoDellaMorraMetodi {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        char scelta, pc;
-        int win, manche, win1 = 0, win2 = 0;
+        Scanner input = new Scanner(System.in);
+        char scelta, sceltaComputer;
+        int risultato, manche, vittorieGiocatore = 0, vittorieComputer = 0;
         System.out.println("Inserisci il numero di manche da giocare: ");
-        manche = in.nextInt();
-        in.nextLine();
+        manche = input.nextInt();
+        input.nextLine();
         for(int i = 0; i < manche; i++) {
             System.out.println("Inserisci la tua scelta: (s/c/f)");
-            scelta = in.nextLine().toLowerCase().charAt(0);
-            pc = mossaComputer();
-            System.out.println("il computer sceglie " + pc);
-            win = vincitore(scelta, pc);
-            switch (win) {
-                case 0 -> {System.out.println("Vince il giocatore."); win1++;}
-                case 1 -> {System.out.println("Vince il computer."); win2++;}
+            scelta = input.nextLine().toLowerCase().charAt(0);
+            sceltaComputer = mossaComputer();
+            System.out.println("Il computer sceglie " + sceltaComputer);
+            risultato = vincitore(scelta, sceltaComputer);
+            switch (risultato) {
+                case 0 -> {System.out.println("Vince il giocatore."); vittorieGiocatore++;}
+                case 1 -> {System.out.println("Vince il computer."); vittorieComputer++;}
                 case 2 -> System.out.println("Pareggio.");
                 case -1 -> {
                     System.out.println("Qualcosa è andato storto. ");
                     return;
                 }
             }
-            in.close();
         }
-        System.out.print("Il vincitore è: " + (win1>win2?"Il giocatore ":win1<win2?"Il computer ":"Nessuno, pareggio."));
-        if(win1 != win2)
-            System.out.println("di " + Math.max(win1, win2) + "punti.");
+        input.close();
+        System.out.print("Il vincitore è: " + (vittorieGiocatore > vittorieComputer ? "Il giocatore " : vittorieGiocatore < vittorieComputer ? "Il computer " : "Nessuno, pareggio."));
+        if(vittorieGiocatore != vittorieComputer)
+            System.out.println("di " + Math.max(vittorieGiocatore, vittorieComputer) + " punti.");
     }
     public static char mossaComputer() {
         Random rand = new Random();
