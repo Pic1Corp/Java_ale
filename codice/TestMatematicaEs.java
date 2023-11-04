@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class TestSomSottMoltDiv {
+public class TestMatematicaEs {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int inputU = 0;
@@ -50,7 +50,7 @@ public class TestSomSottMoltDiv {
     public static void CalcoloVeloce(){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int lv, num1, num2, result, inputU, numCifMax=0, numCifMin=8, conseq=0;
+        int lv, numCifMax=0, numCifMin=8;
         System.out.println("Inserisci il livello di difficoltà: ");
         lv = in.nextInt();
         for (int i=0; i<lv; i++){
@@ -61,9 +61,16 @@ public class TestSomSottMoltDiv {
             }
             numCifMax+=9;
         }
+        Somma(numCifMin,numCifMax);
+    }
+
+    public static void Somma(int c, int d){//c=numero min d=numero max
+        Random rd = new Random();
+        Scanner in = new Scanner(System.in);
+        int result, inputU, conseq=0, num1, num2;
         do {
-            num1 = rd.nextInt(numCifMax-numCifMin+1)+numCifMin;
-            num2 = rd.nextInt(numCifMax-numCifMin+1)+numCifMin;
+            num1 = rd.nextInt(d-c+1)+c;
+            num2 = rd.nextInt(d-c+1)+c;
             result = num1+num2;
             System.out.println(num1 + " + " + num2 + " = ? ");
             inputU = in.nextInt();
