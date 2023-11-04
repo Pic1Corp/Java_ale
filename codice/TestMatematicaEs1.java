@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class TestMatematicaEs {
+public class TestMatematicaEs1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int inputU = 0;
