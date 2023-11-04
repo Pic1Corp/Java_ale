@@ -78,6 +78,7 @@ public class array {
             array7[i]=numeroUt;
             numeroUt-=1;
         }
+        input.close();
 
         //es6
         for (int i = 0; i <= 100; i++){
