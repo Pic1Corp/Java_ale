@@ -50,7 +50,7 @@ public class TestMatematicaEs {
     public static void CalcoloVeloce(){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int lv, numCifMax=0, numCifMin=8;
+        int lv, numCifMax=0, numCifMin=0;
         System.out.println("Inserisci il livello di difficoltà: ");
         lv = in.nextInt();
         for (int i=0; i<lv; i++){
