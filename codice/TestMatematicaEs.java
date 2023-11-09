@@ -41,6 +41,9 @@ public class TestMatematicaEs {
             System.out.println("credo proprio che dovresti darti alle materie umanistiche!");
         in.close();
     }
+
+    
+    
 /**
  * Prints the rules for the "Fast Calculation" game on the console.
  * The rules include instructions to solve addition, subtraction, division, and multiplication operations.
@@ -58,6 +61,8 @@ public class TestMatematicaEs {
             "Nelle divisione arrodonda per aver il risultato in un intero.\r\n" + 
             "Buona fortuna.\r\n");
     }
+
+    
 /**
  * Prints the rules for the exercise of evaluating fractions on the console.
  * The rules include displaying a fraction in the format: n/d [numerator/denominator].
@@ -73,6 +78,7 @@ public class TestMatematicaEs {
                 "Dopo averne fatte giuste 5 consecutive avrai finito l'esercizio.\r\n" +
                 "Buona fortuna!");
     }
+
 /**
  * Prints the rules for the exercise of reducing fractions to their lowest terms on the console.
  * The rules include displaying a fraction in the format: n/d [numerator/denominator].
@@ -91,6 +97,7 @@ public class TestMatematicaEs {
             "Dopo averne fatte giuste 5 consecutive avrai finito l'esercizio.\r\n" + 
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of multiplying fractions and reducing them to their lowest terms on the console.
  * The rules include displaying a fraction multiplication in the format: n/d * n/d [numerator/denominator * numerator/denominator].
@@ -112,6 +119,7 @@ public class TestMatematicaEs {
             "Dopo averne fatte giuste 5 consecutive avrai finito l'esercizio.\r\n" + 
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of adding fractions on the console.
  * The rules include displaying a fraction addition in the format: n/d + n/d [numerator/denominator + numerator/denominator].
@@ -122,6 +130,7 @@ public class TestMatematicaEs {
  * 
  * 
  */
+    
     public static void regoleF4(){
         System.out.println("Verra mostrato una frazione scritta così: n/d + n/d [numeratore/denominatore + numeratore/denominatore].\r\n" + 
             "Devi sommare le frazioni.\r\n" + 
@@ -130,6 +139,7 @@ public class TestMatematicaEs {
             "Dopo averne fatte giuste 5 consecutive avrai finito l'esercizio.\r\n" + 
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of converting decimal numbers to binary on the console.
  * The rules include displaying a decimal number and instructing the player to convert it to binary.
@@ -138,6 +148,8 @@ public class TestMatematicaEs {
  * 
  * 
  */
+
+    
     public static void regoleEq1(){
         System.out.println("Ti verrà mostrato un numero decimale.\r\n" + 
             "Devi convertirlo in binario.\r\n" + 
@@ -145,6 +157,7 @@ public class TestMatematicaEs {
             "Dopo averne fatte giuste 5 consecutive avrai finito l'esercizio.\r\n" + 
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of converting binary numbers to decimal on the console.
  * The rules include displaying a binary number and instructing the player to convert it to decimal.
@@ -160,6 +173,7 @@ public class TestMatematicaEs {
             "Dopo averne fatte giuste 5 consecutive avrai finito l'esercizio.\r\n" + 
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of converting binary numbers to hexadecimal on the console.
  * The rules include displaying a binary number and instructing the player to convert it to hexadecimal.
@@ -175,6 +189,7 @@ public class TestMatematicaEs {
             "Dopo averne fatte giuste 5 consecutive avrai finito l'esercizio.\r\n" + //
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of converting hexadecimal numbers to binary on the console.
  * The rules include displaying a hexadecimal number and instructing the player to convert it to binary.
@@ -190,6 +205,7 @@ public class TestMatematicaEs {
             "Dopo averne fatte giuste 5 consecutive avrai finito l'esercizio.\r\n" + //
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of calculating the area and perimeter of a square on the console.
  * The rules include instructions on how to calculate the area and perimeter of a square
@@ -198,6 +214,8 @@ public class TestMatematicaEs {
  * 
  * 
  */
+
+    
     public static void regoleG1(){
         System.out.println("Ti verrà fornita la lunghezza del lato di un quadrato.\r\n" + 
             "Devi calcolare l'area e il perimetro del quadrato corrispondente.\r\n" + 
@@ -214,6 +232,7 @@ public class TestMatematicaEs {
  * 
  * 
  */
+    
     public static void regoleG2(){
         System.out.println("Ti verrà fornita la lunghezza del lato di un triangolo isoscele e la lunghezza del lato di un quadrato.\r\n" + 
             "Devi identificare chi occupa la superficie maggiore tra il triangolo isoscele e il quadrato.\r\n" + 
@@ -221,6 +240,7 @@ public class TestMatematicaEs {
             "Dopo aver completato correttamente 5 esercizi consecutivi avrai finito il livello 2.\r\n" + 
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of calculating the volume of a cube on the console.
  * The rules include providing the length of the side of a cube.
@@ -237,6 +257,7 @@ public class TestMatematicaEs {
             "Dopo aver completato correttamente 5 esercizi consecutivi avrai finito il livello 3.\r\n" + 
             "Buona fortuna!");
     }
+    
 /**
  * Prints the rules for the exercise of comparing the volumes of a cube and a parallelepiped on the console.
  * The rules include providing the length of the side of a cube and the measurements of the base, height, and depth of a parallelepiped.
@@ -253,6 +274,8 @@ public class TestMatematicaEs {
             "Dopo aver completato correttamente 5 esercizi consecutivi avrai finito il livello 4.\r\n" + 
             "Buona fortuna!");
     }
+
+    
 
 /**
  * Performs a fast calculation based on the user-input difficulty level and computes the average result
@@ -279,6 +302,8 @@ public class TestMatematicaEs {
         mediaP += divisioni(numCifMin, numCifMax); // Calls the method for divisioni
         return mediaP /= 4;
     }
+
+    
 /**
  * Performs various operations related to fractions based on the user's chosen difficulty level, including determining
  * the nature of a fraction, reducing fractions to their lowest terms, multiplying fractions, and adding fractions.
@@ -318,6 +343,8 @@ public class TestMatematicaEs {
             }
         }while(true);
     }
+
+    
 /**
  * Performs various operations related to conversions between different number systems based on the user's chosen difficulty level.
  *
@@ -352,6 +379,8 @@ public class TestMatematicaEs {
             }
         }while(true);
     }
+
+    
 /**
  * Performs various geometric calculations based on the user's chosen difficulty level, including computing the area and perimeter of a square,
  * determining the surface area of different geometric shapes, and comparing volumes of different shapes.
@@ -388,6 +417,8 @@ public class TestMatematicaEs {
         }while(true);
     }
 
+
+    
 /**
  * Generates random addition exercises within a specified range and evaluates the user's input.
  *
@@ -416,6 +447,7 @@ public class TestMatematicaEs {
         } while (conseq <= 5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random subtraction exercises within a specified range and evaluates the user's input.
  *
@@ -446,6 +478,7 @@ public class TestMatematicaEs {
         } while (conseq <= 5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random multiplication exercises within a specified range and evaluates the user's input.
  *
@@ -474,6 +507,7 @@ public class TestMatematicaEs {
         } while (conseq <= 5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random division exercises within a specified range and evaluates the user's input.
  *
@@ -504,6 +538,8 @@ public class TestMatematicaEs {
         } while (conseq <= 5);
         return corrette/100*tentativi;
     }
+
+    
 /**
  * Generates random fractions and tests the user's ability to determine the nature of the fraction.
  * The method assesses whether the fraction is proper, improper, or equivalent, and evaluates the user's input accordingly.
@@ -535,6 +571,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random fractions and tests the user's ability to reduce the fractions to their lowest terms.
  * The method evaluates the user's input and provides feedback based on the reduced form of the fractions.
@@ -571,6 +608,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random fractions and tests the user's ability to multiply and reduce the resulting fractions to their lowest terms.
  * The method evaluates the user's input and provides feedback based on the multiplication and reduced form of the fractions.
@@ -607,6 +645,7 @@ public class TestMatematicaEs {
             } while (conseq <= 5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random fractions and tests the user's ability to add the fractions and reduce the resulting fraction to its lowest terms.
  * The method evaluates the user's input and provides feedback based on the sum and reduced form of the fractions.
@@ -642,6 +681,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * This method calculates the greatest common divisor (GCD) of two integers, 'a' and 'b', using the Euclidean algorithm.
  * The method is implemented as a recursive function that repeatedly applies the formula 'MCD(b, a % b)' until the remainder is zero.
@@ -658,6 +698,7 @@ public class TestMatematicaEs {
             return MCD(b, a%b);
     }
 
+    
 /**
  * Generates random decimal numbers and tests the user's ability to convert them to binary.
  * The method evaluates the user's input and provides feedback based on the converted binary representation of the decimal numbers.
@@ -685,6 +726,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random binary numbers and tests the user's ability to convert them to decimal.
  * The method evaluates the user's input and provides feedback based on the converted decimal representation of the binary numbers.
@@ -712,6 +754,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random hexadecimal numbers and tests the user's ability to convert them to binary.
  * The method evaluates the user's input and provides feedback based on the converted binary representation of the hexadecimal numbers.
@@ -740,6 +783,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random binary numbers and tests the user's ability to convert them to hexadecimal.
  * The method evaluates the user's input and provides feedback based on the converted hexadecimal representation of the binary numbers.
@@ -768,6 +812,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * This method converts a decimal number to its binary representation.
  *
@@ -777,6 +822,7 @@ public class TestMatematicaEs {
     public static String decToBin(int num) {
         return Integer.toBinaryString(num);
     }
+    
 /**
  * This method converts a decimal number to its hexadecimal representation.
  *
@@ -787,6 +833,7 @@ public class TestMatematicaEs {
         return Integer.toHexString(num);
     }
 
+    
 /**
  * Generates random squares and tests the user's ability to calculate the area and perimeter of the square.
  * The method evaluates the user's input and provides feedback based on the calculated area and perimeter of the square.
@@ -814,6 +861,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random isosceles triangles and squares, and tests the user's ability to identify which occupies a larger surface area.
  * The method evaluates the user's input and provides feedback based on the comparison between the areas of the generated shapes.
@@ -848,6 +896,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random cubes and tests the user's ability to calculate the volume of the cube.
  * The method evaluates the user's input and provides feedback based on the calculated volume of the cube.
@@ -871,6 +920,7 @@ public class TestMatematicaEs {
         } while (conseq<=5);
         return corrette/100*tentativi;
     }
+    
 /**
  * Generates random parallelepipeds and squares and tests the user's ability to identify which occupies a larger volume.
  * The method evaluates the user's input and provides feedback based on the comparison between the volumes of the generated shapes.
