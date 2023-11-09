@@ -39,7 +39,7 @@ public class TestMatematicaEs {
  * The number of digits is determined by the user-selected level.
  * The division operation rounds to obtain the result as an integer.
  *
- * @return void
+ * 
  */
     public static void regoleCV(){
         System.out.println("Benvenuto in calcolo veloce, ecco le regole:\r\n" + 
@@ -55,7 +55,7 @@ public class TestMatematicaEs {
  * The player must identify whether the fraction is proper[p], improper[i], or mixed[a].
  * After correctly identifying 5 consecutive fractions, the exercise will be completed.
  * 
- * @return void
+ * 
  */
     public static void regoleF1(){
         System.out.println("Regole:\r\n" + 
@@ -71,7 +71,7 @@ public class TestMatematicaEs {
  * and denominator when prompted.
  * After correctly reducing 5 consecutive fractions, the exercise will be completed.
  * 
- * @return void
+ * 
  */
     public static void regoleF2(){
         System.out.println("Regole:\r\n" + 
@@ -91,7 +91,7 @@ public class TestMatematicaEs {
  * Provide the simplified denominator when prompted (prompt format: [d: {response}]).
  * After correctly completing 5 consecutive fractions, you will finish the exercise.
  * 
- * @return void
+ * 
  */
     public static void regoleF3(){
         System.out.println("Regole:\r\n" + 
@@ -111,7 +111,7 @@ public class TestMatematicaEs {
  * Provide the denominator when prompted (prompt format: [d: {response}]).
  * After correctly completing 5 consecutive fractions, you will finish the exercise.
  * 
- * @return void
+ * 
  */
     public static void regoleF4(){
         System.out.println("Verra mostrato una frazione scritta così: n/d + n/d [numeratore/denominatore + numeratore/denominatore].\r\n" + 
@@ -127,7 +127,7 @@ public class TestMatematicaEs {
  * Write the corresponding binary number.
  * After correctly converting 5 consecutive decimal numbers, you will finish the exercise.
  * 
- * @return void
+ * 
  */
     public static void regoleEq1(){
         System.out.println("Ti verrà mostrato un numero decimale.\r\n" + 
@@ -142,7 +142,7 @@ public class TestMatematicaEs {
  * Write the corresponding decimal number.
  * After correctly converting 5 consecutive binary numbers, you will finish the exercise.
  * 
- * @return void
+ * 
  */
     public static void regoleEq2(){
         System.out.println("Ti verrà mostrato un numero binario.\r\n" + 
@@ -157,7 +157,7 @@ public class TestMatematicaEs {
  * Write the corresponding hexadecimal number.
  * After correctly converting 5 consecutive binary numbers, you will finish the exercise.
  * 
- * @return void
+ * 
  */
     public static void regoleEq3(){
         System.out.println("Ti verrà mostrato un numero binario.\r\n" + //
@@ -172,7 +172,7 @@ public class TestMatematicaEs {
  * Write the corresponding binary number.
  * After correctly converting 5 consecutive hexadecimal numbers, you will finish the exercise.
  * 
- * @return void
+ * 
  */
     public static void regoleEq4(){
         System.out.println("Ti verrà mostrato un numero esadecimale.\r\n" + //
@@ -187,7 +187,7 @@ public class TestMatematicaEs {
  * given the value of the side length, with indications on how to provide the calculated values.
  * Additionally, it indicates the number of consecutive correct calculations required to complete level 1.
  * 
- * @return void
+ * 
  */
     public static void regoleG1(){
         System.out.println("Ti verrà fornita la lunghezza del lato di un quadrato.\r\n" + 
@@ -203,7 +203,7 @@ public class TestMatematicaEs {
  * Write down which geometric figure occupies the larger area.
  * After correctly completing 5 consecutive exercises, you will finish level 2.
  * 
- * @return void
+ * 
  */
     public static void regoleG2(){
         System.out.println("Ti verrà fornita la lunghezza del lato di un triangolo isoscele e la lunghezza del lato di un quadrato.\r\n" + 
@@ -219,7 +219,7 @@ public class TestMatematicaEs {
  * Write down the calculated volume value.
  * After correctly completing 5 consecutive exercises, you will finish level 3.
  * 
- * @return void
+ * 
  */
     public static void regoleG3(){
         System.out.println("Ti verrà fornita la lunghezza del lato di un cubo.\r\n" + 
@@ -235,7 +235,7 @@ public class TestMatematicaEs {
  * Write down which geometric figure occupies the larger volume.
  * After correctly completing 5 consecutive exercises, you will finish level 4.
  * 
- * @return void
+ * 
  */
     public static void regoleG4(){
         System.out.println("Ti verrà fornita la lunghezza del lato di un cubo e le misure di base, altezza e profondità di un parallelepipedo.\r\n" + 
@@ -250,7 +250,7 @@ public class TestMatematicaEs {
  * The method prompts the user to input the difficulty level and calculates the maximum and minimum numbers based on the level.
  * It then proceeds to perform addition, subtraction, multiplication, and division operations within the given range of numbers.
  * 
- * @return void
+ * 
  */
     public static void calcoloVeloce(){
         Scanner in = new Scanner(System.in);
@@ -276,7 +276,7 @@ public class TestMatematicaEs {
  * After selecting the desired level, the corresponding fraction exercise is performed, following the predefined rules for each level.
  * The method uses a do-while loop to continuously prompt the user for their choice until a valid option is selected.
  * 
- * @return void
+ * 
  */
     public static void frazioni(){
     Scanner in = new Scanner(System.in);
@@ -317,7 +317,7 @@ public class TestMatematicaEs {
  * After selecting the desired level, the corresponding conversion exercise is performed, following the predefined rules for each level.
  * The method uses a do-while loop to continuously prompt the user for their choice until a valid option is selected.
  * 
- * @return void
+ * 
  */
     public static void equivalenze() {
         Scanner in = new Scanner(System.in);
@@ -358,7 +358,7 @@ public class TestMatematicaEs {
  * After selecting the desired level, the corresponding geometry exercise is performed, following the predefined rules for each level.
  * The method uses a do-while loop to continuously prompt the user for their choice until a valid option is selected.
  * 
- * @return void
+ * 
  */
     public static void geometria(){
         Scanner in = new Scanner(System.in);
@@ -404,7 +404,7 @@ public class TestMatematicaEs {
  * 
  * @param c The minimum number in the range for generating random numbers.
  * @param d The maximum number in the range for generating random numbers.
- * @return void
+ * 
  */
     public static void somma(int c, int d){
         Random rd = new Random();
@@ -435,7 +435,7 @@ public class TestMatematicaEs {
  * 
  * @param b The minimum number in the range for generating random numbers.
  * @param a The maximum number in the range for generating random numbers.
- * @return void
+ * 
  */
     public static void sottrazione(int b, int a){
         Random rd = new Random();
@@ -467,7 +467,7 @@ public class TestMatematicaEs {
  * 
  * @param a The minimum number in the range for generating random numbers.
  * @param b The maximum number in the range for generating random numbers.
- * @return void
+ * 
  */
     public static void moltiplicazioni(int a, int b){
         Random rd = new Random();
@@ -499,7 +499,7 @@ public class TestMatematicaEs {
  * 
  * @param a The minimum number in the range for generating random numbers.
  * @param b The maximum number in the range for generating random numbers.
- * @return void
+ * 
  */
     public static void divisioni(int a, int b){
         Random rd = new Random();
@@ -530,7 +530,7 @@ public class TestMatematicaEs {
  * If the user's input matches the correct nature of the fraction, the method increments the consecutive correct answers counter.
  * The method continues generating exercises until the user provides 5 consecutive correct answers.
  * 
- * @return void
+ * 
  */
     public static void frazioniLv1(){
         Random rd = new Random();
@@ -562,7 +562,7 @@ public class TestMatematicaEs {
  * If the user's input matches the simplified form of the fraction, the method increments the consecutive correct answers counter.
  * The method continues generating exercises until the user provides 5 consecutive correct answers.
  * 
- * @return void
+ * 
  */
     public static void frazioniLv2(){
         Random rd = new Random();
@@ -599,7 +599,7 @@ public class TestMatematicaEs {
  * If the user's input matches the simplified form of the fraction, the method increments the consecutive correct answers counter.
  * The method continues generating exercises until the user provides 5 consecutive correct answers.
  * 
- * @return void
+ * 
  */
     public static void frazioniLv3(){
         Random rd = new Random();
@@ -636,7 +636,7 @@ public class TestMatematicaEs {
  * If the user's input matches either the sum or the reduced form of the sum, the method increments the consecutive correct answers counter.
  * The method continues generating exercises until the user provides 5 consecutive correct answers.
  * 
- * @return void
+ * 
  */
     public static void frazioniLv4(){
         Scanner in = new Scanner(System.in);
@@ -685,7 +685,7 @@ public class TestMatematicaEs {
  * If the user's input matches the binary conversion, it increments the consecutive count. Otherwise, it informs the user of the correct answer.
  * The method continues this process until the consecutive count reaches 5.
  * 
- * @return void
+ * 
  */
     public static void equivalenzeLv1(){
         Scanner in = new Scanner(System.in);
@@ -711,7 +711,7 @@ public class TestMatematicaEs {
  * If the user's input matches the decimal conversion, it increments the consecutive count. Otherwise, it informs the user of the correct answer.
  * The method continues this process until the consecutive count reaches 5.
  *
- * @return void
+ * 
  */
     public static void equivalenzeLv2(){
         Scanner in = new Scanner(System.in);
@@ -737,7 +737,7 @@ public class TestMatematicaEs {
  * If the user's input matches the binary conversion, it increments the consecutive count. Otherwise, it informs the user of the correct answer. 
  * The method continues this process until the consecutive count reaches 5.
  *
- * @return void
+ * 
  */
     public static void equivalenzeLv3(){
         Scanner in = new Scanner(System.in);
@@ -764,7 +764,7 @@ public class TestMatematicaEs {
  * If the user's input matches the hexadecimal conversion, it increments the consecutive count. Otherwise, it informs the user of the correct answer. 
  * The method continues this process until the consecutive count reaches 5.
  *
- * @return void
+ * 
  */
     public static void equivalenzeLv4(){
         Scanner in = new Scanner(System.in);
@@ -808,7 +808,7 @@ public class TestMatematicaEs {
  * This method quizzes the user on the properties of a square.
  * It generates a random side length for a square and asks the user to provide the perimeter and area of the square.
  * 
- * @return void.
+ * .
  */
     public static void geometria1(){
         Scanner in = new Scanner(System.in);
@@ -832,7 +832,7 @@ public class TestMatematicaEs {
  * This method quizzes the user on which geometric figure occupies the larger area, a given isosceles triangle or a square.
  * It generates random side lengths for the triangle and the square, calculates their respective areas, and asks the user to identify which figure occupies the larger surface area.
  * 
- * @return void.
+ * .
  */
     public static void geometria2(){
         Scanner in = new Scanner(System.in);
@@ -859,7 +859,7 @@ public class TestMatematicaEs {
 /**
  * This method quizzes the user on the volume of a cube with a given side length. It generates a random side length, calculates the cube's volume, and asks the user to provide the volume.
  * 
- * @return void.
+ * .
  */
     public static void geometria3(){
         Scanner in = new Scanner(System.in);
@@ -878,7 +878,7 @@ public class TestMatematicaEs {
 /**
  * This method compares the volumes of a parallelepiped and a square. It generates random dimensions for the parallelepiped and the square, calculates their volumes, and asks the user to identify which figure occupies the greater volume.
  * 
- * @return void.
+ * .
  */
     public static void geometria4(){
         Scanner in = new Scanner(System.in);
