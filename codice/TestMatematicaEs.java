@@ -4,32 +4,41 @@ import java.util.Scanner;
 public class TestMatematicaEs {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int inputU = 0;
+        char inputU = 0;
+        int percentualeMedia=0, volteGiocate=0;
         String nome;
         System.out.println("inserire il nome:");
         nome = in.nextLine();
-        do{
+        do {
             System.out.println("benvenuto " + nome + ", cosa vuoi fare?\r\n" + "1.calcolo veloce\r\n" +"2.frazioni\r\n" +"3.conversione di base\r\n" + "4.geometria");
-            inputU = in.nextInt();
-        }while(inputU < 1 || inputU > 4);
-        switch (inputU) {
-            case 1:
-                regoleCV();
-                calcoloVeloce();
-                break;
-            case 2:
-                frazioni();
-                break;
-            case 3:
-                equivalenze();
-                break;
-            case 4:
-                geometria();
-                break;
-            default:
-                System.out.println("opzione non valida");
-                break;
-        }
+            inputU = in.nextLine().charAt(0);
+            switch (inputU) {
+                case '1':
+                    regoleCV();
+                    percentualeMedia+=calcoloVeloce();
+                    break;
+                case '2':
+                    percentualeMedia+=frazioni();
+                    break;
+                case '3':
+                    percentualeMedia+=equivalenze();
+                    break;
+                case '4':
+                    percentualeMedia+=geometria();
+                    break;
+                }
+            volteGiocate++;
+        } while (inputU != '!');
+        percentualeMedia*=100;
+        percentualeMedia/=volteGiocate;
+        if (percentualeMedia >= 95 && percentualeMedia <= 100)
+            System.out.println("Sei un guro!");
+        else if (percentualeMedia >= 80 && percentualeMedia < 95)
+            System.out.println("Ti consigliamo di esercitarti maggiormente!");
+        else if (percentualeMedia >= 65 && percentualeMedia < 80)
+            System.out.println("Sei sicuro di aver scelto la scuola corretta!");
+        else
+            System.out.println("credo proprio che dovresti darti alle materie umanistiche!");
         in.close();
     }
 /**
@@ -246,15 +255,14 @@ public class TestMatematicaEs {
     }
 
 /**
- * This method facilitates the Fast Calculation game by setting the difficulty level and performing various arithmetic operations.
- * The method prompts the user to input the difficulty level and calculates the maximum and minimum numbers based on the level.
- * It then proceeds to perform addition, subtraction, multiplication, and division operations within the given range of numbers.
- * 
- * 
+ * Performs a fast calculation based on the user-input difficulty level and computes the average result
+ * of several arithmetic operations.
+ *
+ * @return The average value of the arithmetic operations computed for the given difficulty level.
  */
-    public static void calcoloVeloce(){
+    public static int calcoloVeloce(){
         Scanner in = new Scanner(System.in);
-        int lv, numCifMax=0, numCifMin=0;
+        int lv, numCifMax=0, numCifMin=0, mediaP=0;
         System.out.println("Inserisci il livello di difficoltà: ");
         lv = in.nextInt();
         for (int i=0; i<lv; i++){
@@ -265,20 +273,19 @@ public class TestMatematicaEs {
             }
             numCifMax+=9;
         }
-        somma(numCifMin,numCifMax); // Calls the method for somma
-        sottrazione(numCifMin,numCifMax); // Calls the method for sottrazione
-        moltiplicazioni(numCifMin, numCifMax); // Calls the method for moltiplicazioni
-        divisioni(numCifMin, numCifMax); // Calls the method for divisioni
+        mediaP += somma(numCifMin,numCifMax); // Calls the method for somma
+        mediaP += sottrazione(numCifMin,numCifMax); // Calls the method for sottrazione
+        mediaP += moltiplicazioni(numCifMin, numCifMax); // Calls the method for moltiplicazioni
+        mediaP += divisioni(numCifMin, numCifMax); // Calls the method for divisioni
+        return mediaP /= 4;
     }
 /**
- * This method allows the user to choose a level for the Fractions game and provides options for different fraction exercises.
- * The method displays a menu of options, allowing the user to select various operations related to fractions based on the chosen level.
- * After selecting the desired level, the corresponding fraction exercise is performed, following the predefined rules for each level.
- * The method uses a do-while loop to continuously prompt the user for their choice until a valid option is selected.
- * 
- * 
+ * Performs various operations related to fractions based on the user's chosen difficulty level, including determining
+ * the nature of a fraction, reducing fractions to their lowest terms, multiplying fractions, and adding fractions.
+ *
+ * @return The result of the chosen fraction operation based on the user's selected difficulty level.
  */
-    public static void frazioni(){
+    public static int frazioni(){
     Scanner in = new Scanner(System.in);
         int inputU = 0;
         do{
@@ -291,35 +298,32 @@ public class TestMatematicaEs {
             switch (inputU) {
                 case 1:
                     regoleF1(); // Displays rules for Level 1
-                    frazioniLv1(); // Starts exercises for Level 1
-                    break;
+                    return frazioniLv1(); // Starts exercises for Level 1
+                    
                 case 2:
                     regoleF2();  // Displays rules for Level 2
-                    frazioniLv2(); // Starts exercises for Level 2
-                    break;
+                    return frazioniLv2(); // Starts exercises for Level 2
+                    
                 case 3:
                     regoleF3(); // Displays rules for Level 3
-                    frazioniLv3(); // Starts exercises for Level 3
-                    break;
+                    return frazioniLv3(); // Starts exercises for Level 3
+                    
                 case 4:
                     regoleF4(); // Displays rules for Level 4
-                    frazioniLv4(); // Starts exercises for Level 4
-                    break;
+                    return frazioniLv4(); // Starts exercises for Level 4
+                    
                 default:
                     System.out.println("opzione non valida");
-                    break;
+                    return 0;
             }
         }while(true);
     }
 /**
- * This method allows the user to choose a level for the Equivalences game and provides options for different conversion operations.
- * The method displays a menu of options, allowing the user to select various conversion operations based on the chosen level.
- * After selecting the desired level, the corresponding conversion exercise is performed, following the predefined rules for each level.
- * The method uses a do-while loop to continuously prompt the user for their choice until a valid option is selected.
- * 
- * 
+ * Performs various operations related to conversions between different number systems based on the user's chosen difficulty level.
+ *
+ * @return The result of the conversion based on the user's selected difficulty level.
  */
-    public static void equivalenze() {
+    public static int equivalenze() {
         Scanner in = new Scanner(System.in);
         int inputU = 0;
         do{
@@ -332,35 +336,29 @@ public class TestMatematicaEs {
             switch (inputU) {
                 case 1:
                     regoleEq1(); // Displays rules for Level 1
-                    equivalenzeLv1(); // Starts exercises for Level 1
-                    break;
+                    return equivalenzeLv1(); // Starts exercises for Level 1
                 case 2:
                     regoleEq2(); // Displays rules for Level 2
-                    equivalenzeLv2(); // Starts exercises for Level 2
-                    break;
+                    return equivalenzeLv2(); // Starts exercises for Level 2
                 case 3:
                     regoleEq3(); // Displays rules for Level 3
-                    equivalenzeLv3(); // Starts exercises for Level 3
-                    break;
+                    return equivalenzeLv3(); // Starts exercises for Level 3
                 case 4:
                     regoleEq4(); // Displays rules for Level 4
-                    equivalenzeLv4(); // Starts exercises for Level 4
-                    break;
+                    return equivalenzeLv4(); // Starts exercises for Level 4
                 default:
                     System.out.println("opzione non valida");
-                    break;
+                    return 0;
             }
         }while(true);
     }
 /**
- * This method allows the user to choose a level for the Geometry game and provides options for different geometry-related exercises.
- * The method displays a menu of options, allowing the user to select various geometry exercises based on the chosen level.
- * After selecting the desired level, the corresponding geometry exercise is performed, following the predefined rules for each level.
- * The method uses a do-while loop to continuously prompt the user for their choice until a valid option is selected.
- * 
- * 
+ * Performs various geometric calculations based on the user's chosen difficulty level, including computing the area and perimeter of a square,
+ * determining the surface area of different geometric shapes, and comparing volumes of different shapes.
+ *
+ * @return The result of the geometric calculation based on the user's selected difficulty level.
  */
-    public static void geometria(){
+    public static int geometria(){
         Scanner in = new Scanner(System.in);
         int inputU = 0;
         do{
@@ -373,43 +371,34 @@ public class TestMatematicaEs {
             switch (inputU) {
                 case 1:
                     regoleG1(); // Displays rules for Level 1
-                    geometria1(); // Starts exercises for Level 1
-                    break;
+                    return geometria1(); // Starts exercises for Level 1
                 case 2:
                     regoleG2(); // Displays rules for Level 2
-                    geometria2(); // Starts exercises for Level 2 
-                    break;
+                    return geometria2(); // Starts exercises for Level 2 
                 case 3:
                     regoleG3(); // Displays rules for Level 3
-                    geometria3(); // Starts exercises for Level 3 
-                    break;
+                    return geometria3(); // Starts exercises for Level 3 
                 case 4:
                     regoleG4(); // Displays rules for Level 4
-                    geometria4(); // Starts exercises for Level 4
-                    break;
+                    return geometria4(); // Starts exercises for Level 4
                 default:
                     System.out.println("opzione non valida");
-                    break;
+                    return 0;
             }
         }while(true);
     }
 
 /**
- * This method generates random addition exercises within a given range and prompts the user to solve them.
- * The method takes two parameters, 'c' for the minimum number and 'd' for the maximum number in the range.
- * It utilizes the Random class to generate random numbers within the specified range for the addition operation.
- * The user is prompted to provide the sum of two randomly generated numbers.
- * If the user's input matches the correct result, the method increments the consecutive correct answers counter.
- * The method continues generating exercises until the user provides 5 consecutive correct answers.
- * 
- * @param c The minimum number in the range for generating random numbers.
- * @param d The maximum number in the range for generating random numbers.
- * 
+ * Generates random addition exercises within a specified range and evaluates the user's input.
+ *
+ * @param c Lower bound of the range for random number generation.
+ * @param d Upper bound of the range for random number generation.
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void somma(int c, int d){
+    public static int somma(int c, int d){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int result, inputU, conseq=0, num1, num2;
+        int result, inputU, conseq=0, num1, num2, tentativi=0, corrette=0;
         do {
             num1 = rd.nextInt(d-c+1)+c;
             num2 = rd.nextInt(d-c+1)+c;
@@ -418,29 +407,26 @@ public class TestMatematicaEs {
             inputU = in.nextInt();
             if (inputU == result){
                 conseq ++;
+                corrette++;
                 System.out.println("corretto");
             }
             else
                 System.out.println("errato, la risposta corretta è: " + result);
+            tentativi++;
         } while (conseq <= 5);
+        return corrette/100*tentativi;
     }
 /**
- * This method generates random subtraction exercises within a given range and prompts the user to solve them.
- * The method takes two parameters, 'b' for the minimum number and 'a' for the maximum number in the range.
- * It utilizes the Random class to generate random numbers within the specified range for the subtraction operation.
- * The method ensures that the first randomly generated number is greater than or equal to the second one to avoid negative results.
- * The user is prompted to provide the difference between the two randomly generated numbers.
- * If the user's input matches the correct result, the method increments the consecutive correct answers counter.
- * The method continues generating exercises until the user provides 5 consecutive correct answers.
- * 
- * @param b The minimum number in the range for generating random numbers.
- * @param a The maximum number in the range for generating random numbers.
- * 
+ * Generates random subtraction exercises within a specified range and evaluates the user's input.
+ *
+ * @param b Lower bound of the range for random number generation.
+ * @param a Upper bound of the range for random number generation.
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void sottrazione(int b, int a){
+    public static int sottrazione(int b, int a){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int result, inputU, conseq=0, num1, num2;
+        int result, inputU, conseq=0, num1, num2, corrette=0, tentativi=0;
         do {
             do {
                 num1 = rd.nextInt(a-b+1)+b;
@@ -451,28 +437,26 @@ public class TestMatematicaEs {
             inputU = in.nextInt();
             if (inputU == result){
                 conseq ++;
+                corrette++;
                 System.out.println("corretto");
             }
             else
                 System.out.println("errato, la risposta corretta è: " + result);
+            tentativi++;
         } while (conseq <= 5);
+        return corrette/100*tentativi;
     }
 /**
- * This method generates random multiplication exercises within a given range and prompts the user to solve them.
- * The method takes two parameters, 'a' for the minimum number and 'b' for the maximum number in the range.
- * It utilizes the Random class to generate random numbers within the specified range for the multiplication operation.
- * The user is prompted to provide the product of two randomly generated numbers.
- * If the user's input matches the correct result, the method increments the consecutive correct answers counter.
- * The method continues generating exercises until the user provides 5 consecutive correct answers.
- * 
- * @param a The minimum number in the range for generating random numbers.
- * @param b The maximum number in the range for generating random numbers.
- * 
+ * Generates random multiplication exercises within a specified range and evaluates the user's input.
+ *
+ * @param a Lower bound of the range for random number generation.
+ * @param b Upper bound of the range for random number generation.
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void moltiplicazioni(int a, int b){
+    public static int moltiplicazioni(int a, int b){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int result, inputU, conseq=0, num1, num2;
+        int result, inputU, conseq=0, num1, num2, corrette=0, tentativi=0;
         do {
             num1 = rd.nextInt(b-a+1)+a;
             num2 = rd.nextInt(b-a+1)+a;
@@ -481,30 +465,26 @@ public class TestMatematicaEs {
             inputU = in.nextInt();
             if (inputU == result){
                 conseq ++;
+                corrette++;
                 System.out.println("corretto");
             }
             else
                 System.out.println("errato, la risposta corretta è: " + result);
+            tentativi++;
         } while (conseq <= 5);
+        return corrette/100*tentativi;
     }
 /**
- * This method generates random division exercises within a given range and prompts the user to solve them.
- * The method takes two parameters, 'a' for the minimum number and 'b' for the maximum number in the range.
- * It utilizes the Random class to generate random numbers within the specified range for the division operation.
- * The method ensures that the divisor (num2) is not equal to zero to avoid division by zero errors.
- * The user is prompted to provide the result of dividing the first randomly generated number by the second one.
- * The division result is rounded up to the nearest integer using the Math.ceil method to match the rounding behavior specified in the method.
- * If the user's input matches the correct result, the method increments the consecutive correct answers counter.
- * The method continues generating exercises until the user provides 5 consecutive correct answers.
- * 
- * @param a The minimum number in the range for generating random numbers.
- * @param b The maximum number in the range for generating random numbers.
- * 
+ * Generates random division exercises within a specified range and evaluates the user's input.
+ *
+ * @param a Lower bound of the range for random number generation.
+ * @param b Upper bound of the range for random number generation.
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void divisioni(int a, int b){
+    public static int divisioni(int a, int b){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int result, inputU, conseq=0, num1, num2;
+        int result, inputU, conseq=0, num1, num2, corrette=0, tentativi=0;
         do {
             do {
             num2 = rd.nextInt(b-a+1)+a;
@@ -515,27 +495,25 @@ public class TestMatematicaEs {
             inputU = in.nextInt();
             if (inputU == result){
                 conseq ++;
+                corrette++;
                 System.out.println("corretto");
             }
             else
                 System.out.println("errato, la risposta corretta è: " + result);
+            tentativi++;
         } while (conseq <= 5);
+        return corrette/100*tentativi;
     }
-
 /**
- * This method generates random fractions and prompts the user to identify their nature (apparent[a], proper[p], or improper[i]).
- * The method utilizes the Random class to generate random numerators and denominators for the fractions.
- * The user is prompted to provide the nature of the fraction in the form of a character input.
- * 'a' represents an apparent fraction, 'p' represents a proper fraction, and 'i' represents an improper fraction.
- * If the user's input matches the correct nature of the fraction, the method increments the consecutive correct answers counter.
- * The method continues generating exercises until the user provides 5 consecutive correct answers.
- * 
- * 
+ * Generates random fractions and tests the user's ability to determine the nature of the fraction.
+ * The method assesses whether the fraction is proper, improper, or equivalent, and evaluates the user's input accordingly.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void frazioniLv1(){
+    public static int frazioniLv1(){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int inputU, conseq=0, numeratore, denominatore;
+        int inputU, conseq=0, numeratore, denominatore, corrette=0, tentativi=0;
         char tipoFrazione = '*';
         do {
             numeratore = rd.nextInt();
@@ -549,25 +527,24 @@ public class TestMatematicaEs {
             System.out.println("Determina la natura della frazione " + numeratore + "/" + denominatore);
             inputU = in.next().charAt(0);
             in.nextLine();
-            if (inputU == tipoFrazione) 
+            if (inputU == tipoFrazione){
                 conseq++;
+                corrette++;
+            }
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
- * This method generates random fractions and prompts the user to reduce them to their lowest terms.
- * The method utilizes the Random class to generate random numerators and denominators for the fractions within the range of 0 to 100.
- * It ensures that the denominator is always positive to avoid negative fractions.
- * The method then calculates the simplified fraction by dividing both the numerator and the denominator by their greatest common divisor (GCD).
- * The user is prompted to provide the reduced form of the fraction by entering the numerator and the denominator separately.
- * If the user's input matches the simplified form of the fraction, the method increments the consecutive correct answers counter.
- * The method continues generating exercises until the user provides 5 consecutive correct answers.
- * 
- * 
+ * Generates random fractions and tests the user's ability to reduce the fractions to their lowest terms.
+ * The method evaluates the user's input and provides feedback based on the reduced form of the fractions.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void frazioniLv2(){
+    public static int frazioniLv2(){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int inputUN, inputUD, conseq=0, numeratoreNMCD, denominatoreNMCD, numeratoreSMCD, denominatoreSMCD;
+        int inputUN, inputUD, conseq=0, numeratoreNMCD, denominatoreNMCD, numeratoreSMCD, denominatoreSMCD, tentativi=0, corrette=0;
         do {
             numeratoreNMCD = rd.nextInt(100);
             denominatoreNMCD = rd.nextInt(100);
@@ -586,25 +563,24 @@ public class TestMatematicaEs {
             if (inputUN == numeratoreSMCD && inputUD == denominatoreSMCD){
                 System.out.println("corretto");
                 conseq++;
+                corrette++;
             }
             else
                 System.out.println("errato, la frazione ridotta ai minimi termini è: " + numeratoreSMCD + "/" + denominatoreSMCD);
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
- * This method generates two random fractions and prompts the user to multiply them and reduce the result to its lowest terms.
- * The method utilizes the Random class to generate random numerators and denominators for both fractions within the range of 0 to 100.
- * It calculates the product of the two fractions and then simplifies the resulting fraction by dividing both the numerator and the denominator by their greatest common divisor (GCD).
- * The user is prompted to provide the reduced form of the resulting fraction by entering the numerator and the denominator separately.
- * If the user's input matches the simplified form of the fraction, the method increments the consecutive correct answers counter.
- * The method continues generating exercises until the user provides 5 consecutive correct answers.
- * 
- * 
+ * Generates random fractions and tests the user's ability to multiply and reduce the resulting fractions to their lowest terms.
+ * The method evaluates the user's input and provides feedback based on the multiplication and reduced form of the fractions.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void frazioniLv3(){
+    public static int frazioniLv3(){
         Random rd = new Random();
         Scanner in = new Scanner(System.in);
-        int numeratore1, numeratore2, denominatore1, denominatore2, numeratoreRis, denominatoreRis, numeratoreRisMCD, denominatoreRisMCD, inputUD, inputUN, conseq=0;
+        int numeratore1, numeratore2, denominatore1, denominatore2, numeratoreRis, denominatoreRis, numeratoreRisMCD, denominatoreRisMCD, inputUD, inputUN, conseq=0, corrette=0, tentativi=0;
         do {
             numeratore1 = rd.nextInt(100);
             denominatore1 = rd.nextInt(100);
@@ -623,25 +599,24 @@ public class TestMatematicaEs {
             if (inputUN == numeratoreRisMCD && inputUD == denominatoreRisMCD){
                 System.out.println("corretto");
                 conseq++;
+                corrette++;
             }
             else
                 System.out.println("errato, la frazione ridotta ai minimi termini è: " + numeratoreRisMCD + "/" + denominatoreRisMCD);
-        } while (conseq <= 5);
+            tentativi++;
+            } while (conseq <= 5);
+        return corrette/100*tentativi;
     }
 /**
- * This method generates two random fractions and prompts the user to add them and reduce the result to its lowest terms.
- * The method utilizes the Random class to generate random numerators and denominators for both fractions within the range of 0 to 100.
- * It finds the greatest common divisor (GCD) of the denominators of both fractions and then calculates the sum of the two fractions with a common denominator.
- * The user is prompted to provide the sum in its reduced form by entering the numerator and the denominator separately.
- * If the user's input matches either the sum or the reduced form of the sum, the method increments the consecutive correct answers counter.
- * The method continues generating exercises until the user provides 5 consecutive correct answers.
- * 
- * 
+ * Generates random fractions and tests the user's ability to add the fractions and reduce the resulting fraction to its lowest terms.
+ * The method evaluates the user's input and provides feedback based on the sum and reduced form of the fractions.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void frazioniLv4(){
+    public static int frazioniLv4(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int numeratore1, numeratore2, denominatore1, denominatore2, numeratoreRis, denominatoreRis, MCDDenominatori, inputUD, inputUN, conseq=0;
+        int numeratore1, numeratore2, denominatore1, denominatore2, numeratoreRis, denominatoreRis, MCDDenominatori, inputUD, inputUN, conseq=0,corrette=0, tentativi=0;
         do {
             numeratore1 = rd.nextInt(100);
             denominatore1 = rd.nextInt(100);
@@ -659,10 +634,13 @@ public class TestMatematicaEs {
             if (inputUN == numeratoreRis && inputUD == denominatoreRis || inputUN == numeratoreRis/MCD(numeratoreRis, denominatoreRis) && inputUD == denominatoreRis/MCD(numeratoreRis, denominatoreRis)){
                 System.out.println("corretto");
                 conseq++;
+                corrette++;
             }
             else
                 System.out.println("errato, la frazione ridotta ai minimi termini è: " + numeratoreRis + "/" + denominatoreRis);
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
  * This method calculates the greatest common divisor (GCD) of two integers, 'a' and 'b', using the Euclidean algorithm.
@@ -681,16 +659,15 @@ public class TestMatematicaEs {
     }
 
 /**
- * This method generates random decimal numbers and asks the user to convert them to binary. It checks the user's input against the correct binary conversion.
- * If the user's input matches the binary conversion, it increments the consecutive count. Otherwise, it informs the user of the correct answer.
- * The method continues this process until the consecutive count reaches 5.
- * 
- * 
+ * Generates random decimal numbers and tests the user's ability to convert them to binary.
+ * The method evaluates the user's input and provides feedback based on the converted binary representation of the decimal numbers.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void equivalenzeLv1(){
+    public static int equivalenzeLv1(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int num, conseq=0;
+        int num, conseq=0, corrette=0, tentativi=0;
         String bin, inputU;
         do {
             num=rd.nextInt(1023);
@@ -698,25 +675,26 @@ public class TestMatematicaEs {
             System.out.println("Trasforma in binario il seguente numero decimale: " + num);
             inputU = in.nextLine();
             if (inputU == bin){
+                corrette++;
                 conseq++;
                 System.out.println("Corretto");
             }
             else
                 System.out.println("Errato! La risposta corretta è " + bin);
+            tentativi++;
         } while (conseq<=5);
-        
+        return corrette/100*tentativi;
     }
 /**
- * This method generates random binary numbers and asks the user to convert them to decimal. It checks the user's input against the correct decimal conversion.
- * If the user's input matches the decimal conversion, it increments the consecutive count. Otherwise, it informs the user of the correct answer.
- * The method continues this process until the consecutive count reaches 5.
+ * Generates random binary numbers and tests the user's ability to convert them to decimal.
+ * The method evaluates the user's input and provides feedback based on the converted decimal representation of the binary numbers.
  *
- * 
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void equivalenzeLv2(){
+    public static int equivalenzeLv2(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int num, conseq=0, inputU;
+        int num, conseq=0, inputU, corrette=0, tentativi=0;
         String bin;
         do {
             num=rd.nextInt(1023);
@@ -725,24 +703,25 @@ public class TestMatematicaEs {
             inputU = in.nextInt();
             if (inputU == num){
                 conseq++;
+                corrette++;
                 System.out.println("Corretto");
             }
             else
                 System.out.println("Errato! La risposta corretta è " + bin);
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
- * This method generates a random decimal number and its corresponding binary and hexadecimal representations. 
- * It asks the user to convert the decimal number to binary and checks the user's input against the correct binary conversion. 
- * If the user's input matches the binary conversion, it increments the consecutive count. Otherwise, it informs the user of the correct answer. 
- * The method continues this process until the consecutive count reaches 5.
+ * Generates random hexadecimal numbers and tests the user's ability to convert them to binary.
+ * The method evaluates the user's input and provides feedback based on the converted binary representation of the hexadecimal numbers.
  *
- * 
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void equivalenzeLv3(){
+    public static int equivalenzeLv3(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int num, conseq=0;
+        int num, conseq=0, corrette=0, tentativi=0;
         String hex, bin, inputU;
         do {
             num=rd.nextInt(1023);
@@ -752,24 +731,25 @@ public class TestMatematicaEs {
             inputU = in.nextLine();
             if (inputU == hex){
                 conseq++;
+                corrette++;
                 System.out.println("Corretto");
             }
             else
                 System.out.println("Errato! La risposta corretta è " + hex);
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
- * This method generates a random decimal number and its corresponding binary and hexadecimal representations. 
- * It asks the user to convert the binary number to hexadecimal and checks the user's input against the correct hexadecimal conversion. 
- * If the user's input matches the hexadecimal conversion, it increments the consecutive count. Otherwise, it informs the user of the correct answer. 
- * The method continues this process until the consecutive count reaches 5.
+ * Generates random binary numbers and tests the user's ability to convert them to hexadecimal.
+ * The method evaluates the user's input and provides feedback based on the converted hexadecimal representation of the binary numbers.
  *
- * 
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void equivalenzeLv4(){
+    public static int equivalenzeLv4(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int num, conseq=0;
+        int num, conseq=0, corrette=0, tentativi=0;
         String hex, bin, inputU;
         do {
             num=rd.nextInt(1023);
@@ -779,11 +759,14 @@ public class TestMatematicaEs {
             inputU = in.nextLine();
             if (inputU == bin){
                 conseq++;
+                corrette++;
                 System.out.println("Corretto");
             }
             else
                 System.out.println("Errato! La risposta corretta è " + bin);
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
  * This method converts a decimal number to its binary representation.
@@ -805,15 +788,15 @@ public class TestMatematicaEs {
     }
 
 /**
- * This method quizzes the user on the properties of a square.
- * It generates a random side length for a square and asks the user to provide the perimeter and area of the square.
- * 
- * .
+ * Generates random squares and tests the user's ability to calculate the area and perimeter of the square.
+ * The method evaluates the user's input and provides feedback based on the calculated area and perimeter of the square.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void geometria1(){
+    public static int geometria1(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int lato,area,perimetro,inputU,conseq=0;
+        int lato,area,perimetro,inputU,conseq=0, corrette=0, tentativi=0;
         do {
             lato = rd.nextInt(10000);
             area = lato * lato;
@@ -825,19 +808,22 @@ public class TestMatematicaEs {
                 inputU = in.nextInt();
                 if (inputU == area)
                     conseq++;
+                    corrette++;
             }
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
- * This method quizzes the user on which geometric figure occupies the larger area, a given isosceles triangle or a square.
- * It generates random side lengths for the triangle and the square, calculates their respective areas, and asks the user to identify which figure occupies the larger surface area.
- * 
- * .
+ * Generates random isosceles triangles and squares, and tests the user's ability to identify which occupies a larger surface area.
+ * The method evaluates the user's input and provides feedback based on the comparison between the areas of the generated shapes.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void geometria2(){
+    public static int geometria2(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int latoTI, areaTI, altezzaTI, latoQ, areaQ, conseq=0;
+        int latoTI, areaTI, altezzaTI, latoQ, areaQ, conseq=0, tentativi=0, corrette=0;
         String inputU;
         do {
             latoTI = rd.nextInt(10000);
@@ -849,22 +835,29 @@ public class TestMatematicaEs {
             System.out.println("Rispondi con Q per il quadrato e TI per il triangolo isosciele");
             inputU=in.nextLine();
             if (areaQ < areaTI)
-                if (inputU == "TI")
+                if (inputU == "TI"){
                     conseq++;
+                    corrette++;
+                }
             else
-                if (inputU == "Q")
+                if (inputU == "Q"){
                     conseq++;
+                    corrette++;
+                }
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
- * This method quizzes the user on the volume of a cube with a given side length. It generates a random side length, calculates the cube's volume, and asks the user to provide the volume.
- * 
- * .
+ * Generates random cubes and tests the user's ability to calculate the volume of the cube.
+ * The method evaluates the user's input and provides feedback based on the calculated volume of the cube.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void geometria3(){
+    public static int geometria3(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int lato,volume,inputU,conseq=0;
+        int lato,volume,inputU,conseq=0,corrette=0,tentativi=0;
         do {
             lato = rd.nextInt(10000);
             volume = lato * lato * lato;
@@ -872,18 +865,22 @@ public class TestMatematicaEs {
             inputU = in.nextInt();
             if (inputU == volume){
                     conseq++;
+                    corrette++;
             }
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 /**
- * This method compares the volumes of a parallelepiped and a square. It generates random dimensions for the parallelepiped and the square, calculates their volumes, and asks the user to identify which figure occupies the greater volume.
- * 
- * .
+ * Generates random parallelepipeds and squares and tests the user's ability to identify which occupies a larger volume.
+ * The method evaluates the user's input and provides feedback based on the comparison between the volumes of the generated shapes.
+ *
+ * @return The ratio of correct answers to the total number of attempts made by the user.
  */
-    public static void geometria4(){
+    public static int geometria4(){
         Scanner in = new Scanner(System.in);
         Random rd = new Random();
-        int latoP, altezzaP, profonditaP, volumeP, latoQ, volumeQ, conseq=0;
+        int latoP, altezzaP, profonditaP, volumeP, latoQ, volumeQ, conseq=0,corrette=0,tentativi=0;
         String inputU;
         do {
             latoP = rd.nextInt(10000);
@@ -896,14 +893,22 @@ public class TestMatematicaEs {
             System.out.println("Rispondi con Q per il quadrato e P per il parallelepipeto");
             inputU=in.nextLine();
             if (volumeP < volumeQ)
-                if (inputU == "Q")
+                if (inputU == "Q"){
                     conseq++;
+                    corrette++;
+                }
             else if ((volumeP > volumeQ))
-                if (inputU == "P")
+                if (inputU == "P"){
                     conseq++;
+                    corrette++;
+                }
             else if ((volumeP == volumeQ))
-                if (inputU == "P" || inputU == "Q")
+                if (inputU == "P" || inputU == "Q"){
                     conseq++;
+                    corrette++;
+                }
+            tentativi++;
         } while (conseq<=5);
+        return corrette/100*tentativi;
     }
 }
