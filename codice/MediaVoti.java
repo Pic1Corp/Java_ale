@@ -16,7 +16,7 @@ public class MediaVoti {
         double media = (Voto1 + Voto2 + Voto3) / 3.0;
 
         String Giudizio;
-        if (media < 4.5) {
+        if (media <= 4.5) {
             Giudizio = "Gravemente insufficiente";
         }
         else if (media < 6.0) {
