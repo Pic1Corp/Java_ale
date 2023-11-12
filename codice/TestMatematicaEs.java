@@ -29,8 +29,8 @@ public class TestMatematicaEs {
                 }
             volteGiocate++;
         } while (inputU != '!');
-        percentualeMedia*=100;
         percentualeMedia/=volteGiocate;
+        percentualeMedia*=100;
         if (percentualeMedia >= 95 && percentualeMedia <= 100)
             System.out.println("Sei un guro!");
         else if (percentualeMedia >= 80 && percentualeMedia < 95)
@@ -445,7 +445,7 @@ public class TestMatematicaEs {
                 System.out.println("errato, la risposta corretta è: " + result);
             tentativi++;
         } while (conseq <= 5);
-        return corrette/100*tentativi;
+        return corrette/tentativi*100;
     }
     
 /**
@@ -476,7 +476,7 @@ public class TestMatematicaEs {
                 System.out.println("errato, la risposta corretta è: " + result);
             tentativi++;
         } while (conseq <= 5);
-        return corrette/100*tentativi;
+        return corrette/tentativi*100;
     }
     
 /**
@@ -505,7 +505,7 @@ public class TestMatematicaEs {
                 System.out.println("errato, la risposta corretta è: " + result);
             tentativi++;
         } while (conseq <= 5);
-        return corrette/100*tentativi;
+        return corrette/tentativi*100;
     }
     
 /**
@@ -536,7 +536,7 @@ public class TestMatematicaEs {
                 System.out.println("errato, la risposta corretta è: " + result);
             tentativi++;
         } while (conseq <= 5);
-        return corrette/100*tentativi;
+        return corrette/tentativi*100;
     }
 
     
@@ -568,8 +568,8 @@ public class TestMatematicaEs {
                 corrette++;
             }
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -605,8 +605,8 @@ public class TestMatematicaEs {
             else
                 System.out.println("errato, la frazione ridotta ai minimi termini è: " + numeratoreSMCD + "/" + denominatoreSMCD);
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -643,7 +643,7 @@ public class TestMatematicaEs {
                 System.out.println("errato, la frazione ridotta ai minimi termini è: " + numeratoreRisMCD + "/" + denominatoreRisMCD);
             tentativi++;
             } while (conseq <= 5);
-        return corrette/100*tentativi;
+        return corrette/tentativi*100;
     }
     
 /**
@@ -678,8 +678,8 @@ public class TestMatematicaEs {
             else
                 System.out.println("errato, la frazione ridotta ai minimi termini è: " + numeratoreRis + "/" + denominatoreRis);
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -723,8 +723,8 @@ public class TestMatematicaEs {
             else
                 System.out.println("Errato! La risposta corretta è " + bin);
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -751,8 +751,8 @@ public class TestMatematicaEs {
             else
                 System.out.println("Errato! La risposta corretta è " + bin);
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -780,8 +780,8 @@ public class TestMatematicaEs {
             else
                 System.out.println("Errato! La risposta corretta è " + hex);
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -809,8 +809,8 @@ public class TestMatematicaEs {
             else
                 System.out.println("Errato! La risposta corretta è " + bin);
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -858,8 +858,8 @@ public class TestMatematicaEs {
                     corrette++;
             }
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -893,8 +893,8 @@ public class TestMatematicaEs {
                     corrette++;
                 }
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -917,8 +917,8 @@ public class TestMatematicaEs {
                     corrette++;
             }
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
     
 /**
@@ -958,7 +958,7 @@ public class TestMatematicaEs {
                     corrette++;
                 }
             tentativi++;
-        } while (conseq<=5);
-        return corrette/100*tentativi;
+        } while (conseq<5);
+        return corrette/tentativi*100;
     }
 }
