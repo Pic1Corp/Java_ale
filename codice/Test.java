@@ -8,10 +8,13 @@ public interface Test {
 
         int num;
 
-        num=rd.nextInt(1023);
+        num = rd.nextInt(1023);
         String hex = Integer.toHexString(num);
         String bin = Integer.toBinaryString(num);
         System.out.println("Hex value is " + hex);
         System.out.println("Bin value is " + bin);
+
+        in.close();
     }
 }
+
