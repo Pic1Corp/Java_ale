@@ -1,4 +1,8 @@
 public class AlgoritmiImportanti {
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
     }
 
@@ -69,5 +73,43 @@ public class AlgoritmiImportanti {
             }
         }
         return array;
+    }
+
+    
+    /** 
+     * ordina l'array con il bubble sort
+     * @param arr[] array da ordinare
+     */
+    public static void bubbleSort(int arr[]) { 
+        int LunghezzaArray = arr.length; 
+        for (int i = 0; i < LunghezzaArray - 1; i++) 
+            for (int j = 0; j < LunghezzaArray - i - 1; j++) 
+                if (arr[j] > arr[j + 1]) { 
+                    int temp = arr[j]; 
+                    arr[j] = arr[j + 1]; 
+                    arr[j + 1] = temp; 
+                } 
+    } 
+
+    
+    /** 
+     * trova l'indice del valore da cercare in un array
+     * @param array[] array da controllare
+     * @param ValoreCercare valore da cercare nell'array
+     * @param low posizione da cui inizia la ricerca
+     * @param high posizione dove finisce la ricerca
+     * @return ritorna l'indice del numero all'interno dell'array e se -1 se non esiste il valore all'interno dell'array
+     */
+    public static int binarySearch(int array[], int ValoreCercare, int low, int high) {
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+        if (array[mid] == ValoreCercare)
+            return mid;
+        if (array[mid] < ValoreCercare)
+            low = mid + 1;
+        else
+            high = mid - 1;
+        }
+        return -1;
     }
 }
