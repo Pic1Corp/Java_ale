@@ -1,8 +1,4 @@
 public class AlgoritmiImportanti {
-    
-    /** 
-     * @param args
-     */
     public static void main(String[] args) {
     }
 
@@ -80,7 +76,7 @@ public class AlgoritmiImportanti {
      * ordina l'array con il bubble sort
      * @param arr[] array da ordinare
      */
-    public static void bubbleSort(int arr[]) { 
+    public static int[] bubbleSort(int arr[]) { 
         int LunghezzaArray = arr.length; 
         for (int i = 0; i < LunghezzaArray - 1; i++) 
             for (int j = 0; j < LunghezzaArray - i - 1; j++) 
@@ -88,7 +84,8 @@ public class AlgoritmiImportanti {
                     int temp = arr[j]; 
                     arr[j] = arr[j + 1]; 
                     arr[j + 1] = temp; 
-                } 
+                }
+        return arr;
     } 
 
     
