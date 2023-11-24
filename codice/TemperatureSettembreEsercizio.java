@@ -8,7 +8,7 @@ public class TemperatureSettembreEsercizio {
         int[] temperatureSettembre = new int[30];
         int input;
         controlloTemperatureUtente(temperatureSettembre);
-        System.out.println("Cosa vuoi fare?\n1.Trova la temperatura minima\n2.Trova la temperatura massima\n3.I giorni in cui la temperatura è sopra la media\n4.cercare una temperatura");
+        System.out.println("Cosa vuoi fare?\n1.Trova la temperatura minima\n2.Trova la temperatura massima\n3.I giorni in cui la temperatura è sopra la media\n4.cercare una temperatura\n5.Visualizza tabella dell temeperature\n6.Visualizza periodo con temperatura cosante più lungo\n7.Quanti giorni si è passati da una temperatura più rigida ad una più mite");
         input = in.nextInt();
         switch (input) {
             case 1:
@@ -21,7 +21,16 @@ public class TemperatureSettembreEsercizio {
                 giorniSopraESottoLaMedia(temperatureSettembre);
                 break;
             case 4:
-                
+                cercareTemperatura(temperatureSettembre);
+                break;
+            case 5:
+                visualizzaTabella(temperatureSettembre);
+                break;
+            case 6:
+
+                break;
+            case 7:
+
                 break;
             default:
                 break;
@@ -137,7 +146,15 @@ public class TemperatureSettembreEsercizio {
     }
 
     public static void cercareTemperatura(int[] array){
-        
+        Scanner in = new Scanner(System.in);
+        int[] arrayGiorni = new int[array.length];
+        System.out.println("Inserisci la temperatura da cercare");
+        int temperatura = in.nextInt();
+        arrayGiorni = trovaTemperatura(array, temperatura);
+        for (int i=0; i<array.length; i++){
+            if (arrayGiorni[i] != 0)
+                System.out.println("La temperatura " + temperatura + " la troviamo il giorno: " + arrayGiorni[i]);
+        }
     }
 
     public static int[] trovaTemperatura(int[] array, int temperatura){
@@ -147,5 +164,20 @@ public class TemperatureSettembreEsercizio {
                 arrayReturn[i] = i+1;
         }
         return arrayReturn;
+    }
+
+    public static void visualizzaTabella(int[] array){
+        int[] arrayPercentuali = new int[array.length];
+        for(int i=0; i<array.length; i++){
+            System.out.println("Giorno: " + (i+1) + " Temperatura: " + array[i] + "° percentuale" );
+        }
+    }
+
+    public static int[] calcoloPercentuali(int[] array){
+        int[] arrayPercentuali = new int[array.length];
+        for (int i=0; i<array.length; i++){
+            trovaTemperatura(array, i);
+        }
+        return arrayPercentuali;
     }
 }
