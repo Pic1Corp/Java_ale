@@ -27,10 +27,10 @@ public class TemperatureSettembreEsercizio {
                 visualizzaTabella(temperatureSettembre);
                 break;
             case 6:
-
+                visualizzaPeriodoConTemperaturaCosantePiuLungo(temperatureSettembre);
                 break;
             case 7:
-
+                giorniTrascorsiDaRigidaAMite(temperatureSettembre);
                 break;
             default:
                 break;
@@ -168,16 +168,75 @@ public class TemperatureSettembreEsercizio {
 
     public static void visualizzaTabella(int[] array){
         int[] arrayPercentuali = new int[array.length];
+        arrayPercentuali = calcoloPercentuali(array);
         for(int i=0; i<array.length; i++){
-            System.out.println("Giorno: " + (i+1) + " Temperatura: " + array[i] + "° percentuale" );
+            System.out.println("Giorno: " + (i+1) + " Temperatura: " + array[i] + "° percentuale:" + arrayPercentuali[i] + "%");;
         }
     }
 
     public static int[] calcoloPercentuali(int[] array){
         int[] arrayPercentuali = new int[array.length];
-        for (int i=0; i<array.length; i++){
-            trovaTemperatura(array, i);
+        for (int i = 0; i < array.length; i++){
+            arrayPercentuali[i] = trovaTemperaturaCalcoloMedia(array ,array[i]);
         }
         return arrayPercentuali;
     }
+
+    public static int trovaTemperaturaCalcoloMedia(int[] array, int temperatura){
+        int count = 0;
+        for (int temp : array) {
+            if (temp == temperatura) {
+                count++;
+            }
+        }
+        return (count * 100) / array.length;
+    }
+
+    public static void visualizzaPeriodoConTemperaturaCosantePiuLungo(int[] array) {
+        int lunghezzaCorrente = 1;
+        int inizioPeriodoCorrente = 0;
+        int lunghezzaMassima = 1;
+        int inizioPeriodoMassimo = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] == array[i - 1]) {
+                lunghezzaCorrente++;
+            } else {
+                // Se la lunghezza del periodo corrente è maggiore di quella massima,
+                // aggiorna la lunghezza massima e l'inizio del periodo massimo
+                if (lunghezzaCorrente > lunghezzaMassima) {
+                    lunghezzaMassima = lunghezzaCorrente;
+                    inizioPeriodoMassimo = inizioPeriodoCorrente;
+                }
+                // Resetta i valori per il nuovo periodo corrente
+                lunghezzaCorrente = 1;
+                inizioPeriodoCorrente = i;
+            }
+        }
+        // Se la lunghezza del periodo corrente è maggiore di quella massima,
+        if (lunghezzaCorrente > lunghezzaMassima) {
+            lunghezzaMassima = lunghezzaCorrente;
+            inizioPeriodoMassimo = inizioPeriodoCorrente;
+        }
+        // Visualizza il periodo massimo
+        if (lunghezzaMassima > 1) {
+            System.out.println(
+                    "Il periodo più lungo con temperatura costante è dal giorno " + (inizioPeriodoMassimo + 1) +
+                            " al giorno " + (inizioPeriodoMassimo + lunghezzaMassima) +
+                            " con temperatura " + array[inizioPeriodoMassimo] + "°.");
+        } else {
+            System.out.println("Non ci sono periodi con temperatura costante.");
+        }
+    }
+
+
+    public static void giorniTrascorsiDaRigidaAMite(int[] array) {
+            int giorniTrascorsi = 0;
+            for (int i = 1; i < array.length; i++) {
+                if (array[i] > array[i - 1]) {
+                    // La temperatura è diventata più mite
+                    giorniTrascorsi++;
+                }
+            }
+            System.out.println("Giorni trascorsi da temperatura più rigida a più mite: " + giorniTrascorsi);
+        }
 }
