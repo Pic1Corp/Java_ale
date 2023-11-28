@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class AlgoritmiImportanti {
     public static void main(String[] args) {
     }
@@ -108,5 +110,57 @@ public class AlgoritmiImportanti {
             high = mid - 1;
         }
         return -1;
+    }
+
+    /**
+     * Sposta gli elementi dell'array di interi fornito verso destra di una posizione.
+     * L'elemento più a destra verrà spostato nella posizione seconda da destra,
+     * e così via. L'elemento più a sinistra rimane invariato.
+     *
+     * @param array l'array di interi da spostare.
+     */
+    public static void shiftDx(int[] array){
+        for (int i=0; i<array.length-1; i++){
+            array[array.length-i-1] = array[array.length-i-2];
+        }
+    }
+
+    /**
+     * Sposta gli elementi dell'array di interi fornito verso sinistra di una posizione.
+     * L'elemento più a sinistra verrà spostato nella posizione seconda da sinistra,
+     * e così via. L'elemento più a destra rimane invariato.
+     *
+     * @param array l'array di interi da spostare.
+     */
+    public static void shiftSx(int[] array){
+        for (int i=0; i<array.length-1; i++){
+            array[i] = array[i+1];
+        }
+    }
+
+    /**
+     * Esegue una rotazione verso destra degli elementi dell'array di interi fornito.
+     * L'elemento più a destra viene spostato nella posizione più a sinistra, e
+     * gli altri elementi vengono spostati di una posizione verso destra.
+     *
+     * @param array l'array di interi da sottoporre a rotazione.
+     */
+    public static void rotazioneDx(int[] array){
+        int temp=array[array.length-1];
+        shiftDx(array);
+        array[0]=temp;
+    }
+
+    /**
+     * Esegue una rotazione verso sinistra degli elementi dell'array di interi fornito.
+     * L'elemento più a sinistra viene spostato nella posizione più a destra, e
+     * gli altri elementi vengono spostati di una posizione verso sinistra.
+     *
+     * @param array l'array di interi da sottoporre a rotazione.
+     */
+    public static void rotazioneSx(int[] array){
+        int temp=array[0];
+        shiftSx(array);
+        array[array.length-1]=temp;
     }
 }
