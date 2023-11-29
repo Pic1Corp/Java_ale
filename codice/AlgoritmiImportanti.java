@@ -2,6 +2,9 @@ import java.util.Arrays;
 
 public class AlgoritmiImportanti {
     public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9,0};
+        inserisciNumeriInArray(array, 69, 3);
+        System.out.println(Arrays.toString(array));
     }
 
     /** 
@@ -119,11 +122,11 @@ public class AlgoritmiImportanti {
      *
      * @param array l'array di interi da spostare.
      */
-    public static void shiftDx(int[] array){
-        for (int i=0; i<array.length-1; i++){
-            array[array.length-i] = array[array.length-i-1];
+    public static void shiftDx(int[] array, int pos) {
+        for (int i = array.length - 1; i > pos; i--) {
+            array[i] = array[i - 1];
         }
-    }
+    }    
 
     /**
      * Sposta gli elementi dell'array di interi fornito verso sinistra di una posizione.
@@ -132,8 +135,8 @@ public class AlgoritmiImportanti {
      *
      * @param array l'array di interi da spostare.
      */
-    public static void shiftSx(int[] array){
-        for (int i=0; i<array.length-1; i++){
+    public static void shiftSx(int[] array, int pos){
+        for (int i=pos; i<array.length-1; i++){
             array[i] = array[i+1];
         }
     }
@@ -145,9 +148,9 @@ public class AlgoritmiImportanti {
      *
      * @param array l'array di interi da sottoporre a rotazione.
      */
-    public static void rotazioneDx(int[] array){
+    public static void rotazioneDx(int[] array, int pos){
         int temp=array[array.length-1];
-        shiftDx(array);
+        shiftDx(array, pos);
         array[0]=temp;
     }
 
@@ -158,9 +161,14 @@ public class AlgoritmiImportanti {
      *
      * @param array l'array di interi da sottoporre a rotazione.
      */
-    public static void rotazioneSx(int[] array){
+    public static void rotazioneSx(int[] array, int pos){
         int temp=array[0];
-        shiftSx(array);
+        shiftSx(array, pos);
         array[array.length-1]=temp;
+    }
+
+    public static void inserisciNumeriInArray(int[] array, int n, int posizione){
+        shiftDx(array, posizione);
+        array[posizione]=n;
     }
 }
