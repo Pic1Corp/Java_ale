@@ -1,11 +1,4 @@
-import java.util.Arrays;
-
 public class AlgoritmiImportanti {
-    public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9,0};
-        inserisciNumeriInArray(array, 69, 3);
-        System.out.println(Arrays.toString(array));
-    }
 
     /** 
      * trova il valore del primo elemento di un array che ha un valore specifico

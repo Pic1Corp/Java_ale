@@ -1,20 +1,26 @@
+import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
-public interface Test {
+class Test{
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        Random rd = new Random();
-
-        int num;
-
-        num = rd.nextInt(1023);
-        String hex = Integer.toHexString(num);
-        String bin = Integer.toBinaryString(num);
-        System.out.println("Hex value is " + hex);
-        System.out.println("Bin value is " + bin);
-
-        in.close();
+        //dichiaro l'array con le lettera di riferimento
+        char[] array = {'a', 'b', 'c'};
+        //array con le lettere in posizione casuale
+        char[] arrayGenerato = test(array);
+        //mando a schermo arrayGenerato con la libreria Arrays
+        System.out.println(Arrays.toString(arrayGenerato));
     }
-}
 
+    public static char[] test (char[] array){
+        // creo l'oggetto random
+        Random rd = new Random();
+        // dichiaro l'array con le lettere da generare
+        char[] arrayGenerato = new char[5];
+        //loop per riempiere l'array
+        for (int i = 0; i < arrayGenerato.length; i++)
+            // posizione nella posizione i un lettera presa dall'array di riferimento (parametro)
+            arrayGenerato[i] = array[rd.nextInt(3)];
+        // ritoro l'array generato
+        return arrayGenerato;
+    } 
+}
