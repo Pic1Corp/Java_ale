@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Random;
+
 public class AlgoritmiImportanti {
 
     /** 
@@ -170,5 +173,24 @@ public class AlgoritmiImportanti {
     public static void inserisciNumeriInArray(int[] array, int n, int posizione){
         shiftDx(array, posizione);
         array[posizione]=n;
+    }
+
+    public static int convertiCharAInteiro(char c){
+        return (int) c;
+    }
+
+    public static int[] generaArrayRandomNumeriNonRipetuti(int posizioni, int minimoGenerato, int massimoGenerato) {
+        Random rd = new Random();
+        int[] array = new int[posizioni];
+        boolean[] numeriUsciti = new boolean[massimoGenerato - minimoGenerato + 1];
+        for (int i = 0; i < array.length; i++) {
+            int numeroEstratto;
+            do {
+                numeroEstratto = rd.nextInt(massimoGenerato - minimoGenerato + 1) + minimoGenerato;
+            } while (numeriUsciti[numeroEstratto - minimoGenerato]);
+            array[i] = numeroEstratto;
+            numeriUsciti[numeroEstratto - minimoGenerato] = true;
+        }
+        return array;
     }
 }
